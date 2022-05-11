@@ -704,15 +704,16 @@ $(document).ready(function() {
         ];
 
     $("a").each(function() {
-        var currentCounty = this.attr("title");
+        var currentCounty = $(this).attr("title");
         $(this).hover(function(){
             $("#countyName").text("Selected County:" + $(this).attr("title"));
         });
         $(this).click(function(){
             $("#countyTable").text($(this).attr("title"));
-
             var result = json.find(t=>t.county_name === currentCounty).averageRent;
-            alert(result);
+            var result2 = json.find(t=>t.county_name === currentCounty).indexCrimerate;
+            $("#rentTable").text(result);
+            $("#crimerateTable").text(result2);
         });
     });
 });
